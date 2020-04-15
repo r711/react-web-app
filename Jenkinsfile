@@ -22,7 +22,7 @@ pipeline
           npm install
           npm run build
           ls -ltr
-          cd /build
+          cd build
           ls -ltr
           '''
         }
