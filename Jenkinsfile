@@ -42,7 +42,14 @@ pipeline
         cp -r frontend-${BUILD_NUMBER}.tar deploy/
         cd deploy
         tar -xvf frontend-${BUILD_NUMBER}.tar
+        rm -rf frontend-${BUILD_NUMBER}.tar
         ls -ltr
+        gsutil acl ch -u AllUsers:R gs://rakesh-nair
+        gsutil defacl set public-read gs://rakesh-nair
+        gsutil web set -m index.html -e index.html gs://rakesh-nair
+        gsutil cp -r * gs://rakesh-nair
+        gsutil setmeta -h "content-type: image/svg+xml" gs://rakesh-nair/static/media/*.svg
+        
         '''
       }
     }
