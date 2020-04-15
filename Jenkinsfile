@@ -21,7 +21,9 @@ pipeline
           ls -ltr
           npm install
           npm run build
-          ls -itr
+          ls -ltr
+          cd /build
+          ls -ltr
           '''
         }
       }
